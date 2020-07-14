@@ -21,4 +21,6 @@ var database = firebase.database()
 var express = require("express")
 var expressApp = express()
 
-expressApp.use("/pages", express.static("public"))
+const PORT = process.env.PORT || 5000
+
+expressApp.use("/pages", express.static("public")).listen(PORT, () => console.log(`Listening on ${ PORT }`))
