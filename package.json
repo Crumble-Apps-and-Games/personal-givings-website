@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "A website to view your weekly givings for Harmony Hill Presbyterian Church",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Crumble-Apps-and-Games/hhpc-weekly-givings-website.git"
@@ -15,5 +13,9 @@
   "bugs": {
     "url": "https://github.com/Crumble-Apps-and-Games/hhpc-weekly-givings-website/issues"
   },
-  "homepage": "https://github.com/Crumble-Apps-and-Games/hhpc-weekly-givings-website#readme"
+  "homepage": "https://github.com/Crumble-Apps-and-Games/hhpc-weekly-givings-website#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^7.16.0"
+  }
 }
