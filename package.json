@@ -4,7 +4,7 @@
   "description": "A website to view your weekly givings for Harmony Hill Presbyterian Church",
   "main": "index.js",
   "scripts": {
-    "start": "npm index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 var firebase = require("firebase/app")
 
 require("firebase/auth")
-require("firebase/firestore")
+require("firebase/database")
 
 var firebaseConfig = {
     apiKey: "AIzaSyD8tpGXe_T2dBda_nmDvw-yBU2Nei_FnQQ",
@@ -21,4 +21,4 @@ var database = firebase.database()
 var express = require("express")
 var expressApp = express()
 
-expressApp.use('/pages', express.static(path.join(__dirname, 'public')))
+expressApp.use("/pages", express.static("public"))
