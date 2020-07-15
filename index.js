@@ -72,6 +72,8 @@ expressApp.get('/viewfunds', function (req, res) {
     database.ref(`/users/${userId}`).once("value").then(function(snapshot) {
         var data = snapshot.val()
 
+        console.log(data)
+
         fwoNumber = data["fwo_number"]
         fwoAmount = data["fwo_givings"]
         developmentAmount = data["development_givings"]
