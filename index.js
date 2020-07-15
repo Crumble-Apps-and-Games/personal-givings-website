@@ -56,8 +56,10 @@ expressApp.post('/signin', function (req, res) {
 })
 
 expressApp.get('/viewfunds', function (req, res) {
+    var userId
+
     if (firebase.auth().currentUser != null) {
-        var userId = firebase.auth().currentUser.uid
+        userId = firebase.auth().currentUser.uid
     } else {
         res.redirect("/")
         return
@@ -72,8 +74,6 @@ expressApp.get('/viewfunds', function (req, res) {
         fwoAmount = snapshot.val().fwo_givings
         developmentAmount = snapshot.val().development_givings
     })
-
-    console.log(fwoNumber)
 
     res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount })
 })
