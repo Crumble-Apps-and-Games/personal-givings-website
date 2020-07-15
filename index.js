@@ -41,11 +41,13 @@ expressApp.post('/signin', function (req, res) {
         var errorMessage = error.message
 
         res.redirect("/?error=signInFailed")
+        return
     })
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             res.redirect("/viewfunds")
+            return
         } else {
             // user signed out
         }
