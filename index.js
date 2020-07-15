@@ -24,6 +24,7 @@ var expressApp = express()
 const PORT = process.env.PORT || 5000
 
 expressApp.use("/pages", express.static("public")).listen(PORT, () => console.log(`Listening on ${ PORT }`))
+expressApp.use(express.urlencoded())
 
 expressApp.get('/', function (req, res) {
     res.redirect("/pages/index.html")
