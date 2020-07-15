@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Crumble-Apps-and-Games/hhpc-weekly-givings-website#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-validator": "^6.6.0",
     "firebase": "^7.16.0"
   }
 }
