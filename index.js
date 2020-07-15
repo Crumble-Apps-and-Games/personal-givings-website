@@ -26,6 +26,7 @@ const PORT = process.env.PORT || 5000
 expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
 expressApp.set("view engine", "pug")
+expressApp.set("views", "public")
 
 expressApp.listen(PORT)
 
