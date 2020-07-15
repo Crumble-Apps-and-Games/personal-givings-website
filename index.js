@@ -65,16 +65,16 @@ expressApp.get('/viewfunds', function (req, res) {
         return
     }
 
-    console.log(userId)
-
     var fwoNumber
     var fwoAmount
     var developmentAmount
 
     database.ref(`/users/${userId}`).once("value").then(function(snapshot) {
-        fwoNumber = snapshot.val().fwo_number
-        fwoAmount = snapshot.val().fwo_givings
-        developmentAmount = snapshot.val().development_givings
+        var data = snapshot.val()
+
+        fwoNumber = data["fwo_number"]
+        fwoAmount = data["fwo_givings"]
+        developmentAmount = data["development_givings"]
     })
 
     res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount })
