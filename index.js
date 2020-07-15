@@ -23,10 +23,11 @@ var expressApp = express()
 
 const PORT = process.env.PORT || 5000
 
+expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
 
 expressApp.get('/', function (req, res) {
-    res.sendFile("public/index.html")
+    res.sendFile("index.html")
 })
 
 expressApp.post('/signin', function (req, res) {
