@@ -56,7 +56,12 @@ expressApp.post('/signin', function (req, res) {
 })
 
 expressApp.get('/viewfunds', function (req, res) {
-    var userId = firebase.auth().currentUser.uid
+    if (firebase.auth().currentUser != null) {
+        var userId = firebase.auth().currentUser.uid
+    } else {
+        res.redirect("/")
+        return
+    }
 
     var fwoNumber
     var fwoAmount
