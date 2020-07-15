@@ -77,5 +77,7 @@ expressApp.get('/viewfunds', function (req, res) {
         developmentAmount = data["development_givings"]
     })
 
+    console.log(fwoNumber)
+
     res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount })
 })
