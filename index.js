@@ -19,6 +19,7 @@ firebase.initializeApp(firebaseConfig)
 var database = firebase.database()
 
 var express = require("express")
+var favicon = require("serve-favicon")
 var expressApp = express()
 
 const PORT = process.env.PORT || 5000
