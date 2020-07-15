@@ -26,6 +26,8 @@ const PORT = process.env.PORT || 5000
 expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
 
+expressApp.listen(PORT)
+
 expressApp.get('/', function (req, res) {
     res.sendFile("index.html")
 })
