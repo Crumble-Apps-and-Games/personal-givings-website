@@ -67,5 +67,5 @@ expressApp.get('/viewfunds', function (req, res) {
         developmentAmount = snapshot.val().development_givings
     })
 
-    res.render("viewfunds",  { "fwo_number": fwoNumber, "fwo_amount": fwoAmount, "development_amount": developmentAmount })
+    res.render("./viewfunds",  { "fwo_number": fwoNumber, "fwo_amount": fwoAmount, "development_amount": developmentAmount })
 })
