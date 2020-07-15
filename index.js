@@ -42,14 +42,14 @@ expressApp.post('/signin', function (req, res) {
 
         res.redirect("/?error=signInFailed")
     })
-})
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        location.href = "viewfunds"
-    } else {
-        // user signed out
-    }
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            res.redirect("/viewfunds")
+        } else {
+            // user signed out
+        }
+    })
 })
 
 expressApp.get('/viewfunds', function (req, res) {
