@@ -44,7 +44,7 @@ expressApp.post('/signin', function (req, res) {
         var errorCode = error.code
         var errorMessage = error.message
 
-        res.redirect("/?error=signInFailed")
+        res.redirect("/?message=signInFailed")
         return
     })
 
@@ -87,7 +87,7 @@ expressApp.get('/viewfunds', function (req, res) {
 
 expressApp.get('/signout', function (req, res) {
     firebase.auth().signOut().then(function() {
-        res.redirect("/?error=signedOutSuccessfully")
+        res.redirect("/?message=signedOutSuccessfully")
       }).catch(function(error) {
         // An error happened.
       });

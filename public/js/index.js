@@ -1,13 +1,13 @@
 url = new URL(window.location.href)
 
-if (url.searchParams.get("error")) {
-    var errorMessage = url.searchParams.get("error")
+if (url.searchParams.get("message")) {
+    var message = url.searchParams.get("message")
 
-    if (errorMessage == "signInFailed") {
+    if (message == "signInFailed") {
         var errorNode = document.createElement("b")
         errorNode.innerHTML = "Sign in failed. Try again."
         document.body.appendChild(errorNode)
-    } else if (errorMessage == "signedOutSuccessfully") {
+    } else if (message == "signedOutSuccessfully") {
         var errorNode = document.createElement("b")
         errorNode.innerHTML = "Signed out successfully. You may now close this window"
         document.body.appendChild(errorNode)
