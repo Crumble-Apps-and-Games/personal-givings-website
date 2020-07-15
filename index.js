@@ -20,6 +20,7 @@ var database = firebase.database()
 
 var express = require("express")
 var favicon = require("serve-favicon")
+var path = require("path")
 var expressApp = express()
 
 const PORT = process.env.PORT || 5000
@@ -28,7 +29,7 @@ expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
 expressApp.set("view engine", "pug")
 expressApp.set("views", "public")
-expressApp.use(favicon("/public/res/images/hhpc logo.png"))
+expressApp.use(favicon(path.join(__dirname, "public/res/images/hhpc logo.png")))
 
 expressApp.listen(PORT)
 
