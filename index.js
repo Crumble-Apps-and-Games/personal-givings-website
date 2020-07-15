@@ -74,9 +74,10 @@ expressApp.get('/viewfunds', function (req, res) {
 
         console.log(data)
 
-        fwoNumber = data["fwo_number"]
-        fwoAmount = data["fwo_givings"]
-        developmentAmount = data["development_givings"]
+        fwoNumber = data.fwo_number
+        console.log("local " + fwoNumber)
+        fwoAmount = data.fwo_givings
+        developmentAmount = data.development_givings
     })
 
     console.log(fwoNumber)
