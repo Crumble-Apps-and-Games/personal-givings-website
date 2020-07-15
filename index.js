@@ -27,6 +27,7 @@ expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
 expressApp.set("view engine", "pug")
 expressApp.set("views", "public")
+expressApp.use(favicon("/public/res/images/hhpc logo.png"))
 
 expressApp.listen(PORT)
 
