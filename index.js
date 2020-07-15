@@ -84,3 +84,11 @@ expressApp.get('/viewfunds', function (req, res) {
         res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount })
     })
 })
+
+expressApp.get('/signout', function (req, res) {
+    firebase.auth().signOut().then(function() {
+        res.redirect("/")
+      }).catch(function(error) {
+        // An error happened.
+      });
+})
