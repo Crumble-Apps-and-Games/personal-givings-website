@@ -17,3 +17,7 @@ button, input, select, textarea {
     margin: 0;
     box-sizing: border-box;
 }
+
+.text_input {
+    margin-bottom: 10px;
+}
