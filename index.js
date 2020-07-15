@@ -87,7 +87,7 @@ expressApp.get('/viewfunds', function (req, res) {
 
 expressApp.get('/signout', function (req, res) {
     firebase.auth().signOut().then(function() {
-        res.redirect("/")
+        res.redirect("/?error=signedOutSuccessfully")
       }).catch(function(error) {
         // An error happened.
       });
