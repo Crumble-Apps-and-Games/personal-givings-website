@@ -65,6 +65,8 @@ expressApp.get('/viewfunds', function (req, res) {
         return
     }
 
+    console.log(userId)
+
     var fwoNumber
     var fwoAmount
     var developmentAmount
