@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
-    "firebase": "^7.16.0"
+    "firebase": "^7.16.0",
+    "pug": "^3.0.0"
   }
 }

@@ -25,6 +25,7 @@ const PORT = process.env.PORT || 5000
 
 expressApp.use(express.static("public"))
 expressApp.use(express.urlencoded())
+expressApp.set("view engine", "pug")
 
 expressApp.listen(PORT)
 
@@ -45,8 +46,24 @@ expressApp.post('/signin', function (req, res) {
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        
+        location.href = "viewfunds"
     } else {
         // user signed out
     }
+})
+
+expressApp.get('/viewfunds', function (req, res) {
+    var userId = firebase.auth().currentUser.uid
+
+    var fwoNumber
+    var fwoAmount
+    var developmentAmount
+
+    database.ref(`/users/${userId}`).once("value").then(function(snapshot) {
+        fwoNumber = snapshot.val().fwo_number
+        fwoAmount = snapshot.val().fwo_givings
+        developmentAmount = snapshot.val().development_givings
+    })
+
+    res.render("viewfunds",  { "fwo_number": fwoNumber, "fwo_amount": fwoAmount, "development_amount": developmentAmount })
 })
