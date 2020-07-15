@@ -39,7 +39,7 @@ expressApp.post('/signin', function (req, res) {
         var errorCode = error.code
         var errorMessage = error.message
 
-        res.redirect("/pages/index.html?error=signInFailed")
+        res.redirect("/?error=signInFailed")
     })
 })
 
