@@ -80,8 +80,12 @@ expressApp.get('/viewfunds', function (req, res) {
         fwoNumber = data.fwo_number
         fwoAmount = data.fwo_givings
         developmentAmount = data.development_givings
+        unitedAppealAmount = data.united_appeal_givings
+        worldDevelopmentAmount = data.world_development_givings
+        lambegAppealAmount = data.lambeg_appeal_givings
+        totalAmount = data.total_givings
 
-        res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount })
+        res.render("./viewfunds",  { fwo_number: fwoNumber, fwo_amount: fwoAmount, development_amount: developmentAmount, united_appeal_amount: unitedAppealAmount, world_development_amount: worldDevelopmentAmount, lambeg_appeal_amount: lambegAppealAmount, total_amount: totalAmount })
     })
 })
 
