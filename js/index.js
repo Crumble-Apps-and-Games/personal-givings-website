@@ -1,7 +1,15 @@
-url = new URL(window.location.href)
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
-if (url.searchParams.get("message")) {
-    var message = url.searchParams.get("message")
+if (getParameterByName("message") != null) {
+    var message = getParameterByName("message")
 
     if (message == "signInFailed") {
         var errorNode = document.createElement("b")
