@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css" type="text/css">
-    <title>Personal Givings Website - Home</title>
+    <title>Personal Givings Viewer - Home</title>
 </head>
 
 <body>
@@ -14,6 +14,9 @@
     <h2>Website Version</h2>
     <p>Powered by Crumble</p>
     <br>
+    <br>
+    <label for="church_input">Church:</label>
+    <input type="text" name="church_input" id="church_input" class="text_input" />
     <br>
     <label for="fwo_input">FWO:</label>
     <input type="text" name="fwo_input" id="fwo_input" class="text_input" />
@@ -23,11 +26,13 @@
     <br>
     <button onclick="signIn();">Submit</button>
     <br>
+    <p style="visibility: collapse;" id="signing_in_p">Signing you in...</p>
 
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="js/all.js"></script>
     <script src="js/index.js"></script>
 </body>
 

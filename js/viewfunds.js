@@ -22,17 +22,27 @@ var fundsTable = document.getElementById("funds-table")
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         var userID = user.uid;
-        firebase.database().ref("/users/" + userID).once("value").then(function(snapshot) {
+        var churchCode = getParameterByName("church")
+        firebase.database().ref(churchCode + "/users/" + userID).once("value").then(function(snapshot) {
             userData = snapshot.val()
 
             document.getElementById("fwo_number_h1").innerHTML += userData.fwo_number
 
             document.getElementById("fwo_amount_td").innerHTML += userData.fwo_givings
+            document.getElementById("fwo_amount_td").innerHTML = document.getElementById("fwo_amount_td").innerHTML.replace("undefined", "0.00")
             document.getElementById("dev_amount_td").innerHTML += userData.development_givings
+            document.getElementById("dev_amount_td").innerHTML = document.getElementById("dev_amount_td").innerHTML.replace("undefined", "0.00")
             document.getElementById("ua_amount_td").innerHTML += userData.united_appeal_givings
+            document.getElementById("ua_amount_td").innerHTML = document.getElementById("ua_amount_td").innerHTML.replace("undefined", "0.00")
             document.getElementById("wd_amount_td").innerHTML += userData.world_development_givings
+            document.getElementById("wd_amount_td").innerHTML = document.getElementById("wd_amount_td").innerHTML.replace("undefined", "0.00")
             document.getElementById("lp_amount_td").innerHTML += userData.lambeg_appeal_givings
+            document.getElementById("lp_amount_td").innerHTML = document.getElementById("lp_amount_td").innerHTML.replace("undefined", "0.00")
             document.getElementById("total_amount_td").innerHTML += userData.total_givings
+            document.getElementById("total_amount_td").innerHTML = document.getElementById("total_amount_td").innerHTML.replace("undefined", "0.00")
+
+            document.getElementById("show_on_load_div").style.visibility = "visible"
+            document.getElementById("loading_p").remove()
         })
         return
     } else {

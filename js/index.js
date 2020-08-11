@@ -1,27 +1,7 @@
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+if (getParameterByName("church") != null) {
+    var church = getParameterByName("church")
 
-if (getParameterByName("message") != null) {
-    var message = getParameterByName("message")
-
-    if (message == "signInFailed") {
-        var errorNode = document.createElement("b")
-        errorNode.innerHTML = "Sign in failed. Try again."
-        document.body.appendChild(document.createElement("br"))
-        document.body.appendChild(errorNode)
-    } else if (message == "signedOutSuccessfully") {
-        var errorNode = document.createElement("b")
-        errorNode.innerHTML = "Signed out successfully. You may now close this window"
-        document.body.appendChild(document.createElement("br"))
-        document.body.appendChild(errorNode)
-    }
+    document.getElementById("church_input").value = church
 }
 
 var firebaseConfig = {
@@ -41,7 +21,9 @@ var database = firebase.database()
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        window.location.href = "./viewfunds.html"
+        document.getElementById("signing_in_p").style.visibility = "visible"
+        var churchCode = document.getElementById("church_input").value.toLowerCase()
+        window.location.href = `./viewfunds.html?church=${churchCode}`
         return
     } else {
         // user signed out
@@ -49,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 })
 
 function signIn() {
-    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value}@example.com`, document.getElementById("pin_input").value).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value}@${document.getElementById("church_input").value.toLowerCase()}.com`, document.getElementById("pin_input").value).catch(function(error) {
         var errorCode = error.code
         var errorMessage = error.message
 

@@ -6,48 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/viewfunds.css" type="text/css" />
-    <title>Personal Givings Website - View Funds</title>
+    <title>Personal Givings Viewer - View Funds</title>
 </head>
 
 <body>
-    <h1 id="fwo_number_h1">FWO </h1>
-    <table style="width:50%;margin-left:auto;margin-right:auto;" id="funds-table">
-        <tr>
-            <th>Fund title</th>
-            <th>Amount (£)</th>
-        </tr>
-        <tr>
-            <td>FWO</td>
-            <td id="fwo_amount_td">£</td>
-        </tr>
-        <tr>
-            <td>Development</td>
-            <td id="dev_amount_td">£</td>
-        </tr>
-        <tr>
-            <td>United Appeal</td>
-            <td id="ua_amount_td">£</td>
-        </tr>
-        <tr>
-            <td>World Development</td>
-            <td id="wd_amount_td">£</td>
-        </tr>
-        <tr>
-            <td>Lambeg Project</td>
-            <td id="lp_amount_td">£</td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td id="total_amount_td">£</td>
-        </tr>
-    </table>
-    <br>
-    <button onclick="signOut();">Sign out</button>
+    <p id="loading_p">Loading...</p>
+    <div id="show_on_load_div" style="visibility:collapse;">
+        <h1 id="fwo_number_h1">FWO </h1>
+        <table style="width:75%;margin-left:auto;margin-right:auto;" id="funds-table">
+            <tr style="background-color: lightgray;">
+                <th>Fund title</th>
+                <th>Amount (£)</th>
+            </tr>
+            <tr>
+                <td>FWO</td>
+                <td id="fwo_amount_td">£</td>
+            </tr>
+            <tr>
+                <td>Development</td>
+                <td id="dev_amount_td">£</td>
+            </tr>
+            <tr>
+                <td>United Appeal</td>
+                <td id="ua_amount_td">£</td>
+            </tr>
+            <tr>
+                <td>World Development</td>
+                <td id="wd_amount_td">£</td>
+            </tr>
+            <tr>
+                <td>Lambeg Project</td>
+                <td id="lp_amount_td">£</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td id="total_amount_td">£</td>
+            </tr>
+        </table>
+        <br>
+        <button onclick="signOut();">Sign out</button>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="js/all.js"></script>
     <script src="js/viewfunds.js"></script>
 
 </body>
