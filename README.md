@@ -1,2 +1,2 @@
-# personal-givings-website
-A website to view your weekly givings for Harmony Hill Presbyterian Church
+# Personal Givings Website
+A website to view your weekly givings for churches and other organisations
