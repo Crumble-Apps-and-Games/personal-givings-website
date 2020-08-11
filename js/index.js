@@ -22,7 +22,7 @@ var database = firebase.database()
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById("signing_in_p").style.visibility = "visible"
-        var churchCode = document.getElementById("church_input").value.toLowerCase()
+        var churchCode = user.email.split("@")[1].split(".")[0]
         window.location.href = `./viewfunds.html?church=${churchCode}`
         return
     } else {
