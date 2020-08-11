@@ -39,6 +39,15 @@ firebase.initializeApp(firebaseConfig)
 
 var database = firebase.database()
 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        window.location.href = "./viewfunds.html"
+        return
+    } else {
+        // user signed out
+    }
+})
+
 function signIn() {
     firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value}@example.com`, document.getElementById("pin_input").value).catch(function(error) {
         var errorCode = error.code
@@ -46,14 +55,5 @@ function signIn() {
 
         window.location.href = "./index.html?message=signInFailed"
         return
-    })
-
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            window.location.href = "./viewfunds.html"
-            return
-        } else {
-            // user signed out
-        }
     })
 }

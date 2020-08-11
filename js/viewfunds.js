@@ -25,6 +25,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         firebase.database().ref("/users/" + userID).once("value").then(function(snapshot) {
             userData = snapshot.val()
 
+            document.getElementById("fwo_number_h1").innerHTML += userData.fwo_number
+
             document.getElementById("fwo_amount_td").innerHTML += userData.fwo_givings
             document.getElementById("dev_amount_td").innerHTML += userData.development_givings
             document.getElementById("ua_amount_td").innerHTML += userData.united_appeal_givings
