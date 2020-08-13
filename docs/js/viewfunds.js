@@ -41,8 +41,8 @@ firebase.auth().onAuthStateChanged(function(user) {
             document.getElementById("total_amount_td").innerHTML += userData.total_givings
             document.getElementById("total_amount_td").innerHTML = document.getElementById("total_amount_td").innerHTML.replace("undefined", "0.00")
 
-            firebase.database().ref(churchCode + "/date/dateValue").once("value").then(function(snapshot2) {
-                document.getElementById("data_h2").innerHTML += snapshot2.val()
+            firebase.database().ref(churchCode + "/date").once("value").then(function(snapshot2) {
+                document.getElementById("data_h2").innerHTML += (snapshot2.val().dateStart + " to " + snapshot2.val().dateEnd)
 
                 document.getElementById("show_on_load_div").style.visibility = "visible"
                 document.getElementById("loading_p").remove()
