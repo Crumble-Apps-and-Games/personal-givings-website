@@ -31,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 })
 
 function signIn() {
-    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value}@${document.getElementById("church_input").value.toLowerCase()}.com`, document.getElementById("pin_input").value).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value.padStart(4, '0')}@${document.getElementById("church_input").value.toLowerCase()}.com`, document.getElementById("pin_input").value).catch(function(error) {
         var errorCode = error.code
         var errorMessage = error.message
 
