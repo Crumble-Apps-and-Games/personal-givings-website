@@ -17,13 +17,20 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-var database = firebase.database()
-
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        document.getElementById("signing_in_p").style.visibility = "visible"
-        var churchCode = user.email.split("@")[1].split(".")[0]
-        window.location.href = `./viewfunds.html?church=${churchCode}`
+        firebase.database().ref("/admin/" + user.uid).once("value").then(function(snapshot) {
+            if (snapshot.val()) {
+                window.location.href = "./admin-index.html"
+                return
+            }
+
+            document.getElementById("signing_in_p").style.visibility = "visible"
+            var churchCode = user.email.split("@")[1].split(".")[0]
+            window.location.href = `./viewfunds.html?church=${churchCode}`
+            return
+        })
+
         return
     } else {
         // user signed out

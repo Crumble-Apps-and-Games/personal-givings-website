@@ -18,7 +18,12 @@ if (getParameterByName("message") != null) {
         document.body.appendChild(errorNode)
     } else if (message == "signedOutSuccessfully") {
         var errorNode = document.createElement("b")
-        errorNode.innerHTML = "Signed out successfully. You may now close this window"
+        errorNode.innerHTML = "Signed out successfully. You may now close this window."
+        document.body.appendChild(document.createElement("br"))
+        document.body.appendChild(errorNode)
+    } else if (message == "notAdmin") {
+        var errorNode = document.createElement("b")
+        errorNode.innerHTML = "You are not an admin of any churches."
         document.body.appendChild(document.createElement("br"))
         document.body.appendChild(errorNode)
     }
