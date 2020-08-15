@@ -11,21 +11,19 @@
 </head>
 
 <body>
-    <button style="float: right;" onclick="window.location.href = './admin-login.html'">Admin Login</button>
-    <br>
     <h1>Personal Givings Viewer</h1>
     <h2>Website Version</h2>
     <p>Powered by <a href="https://crumble-technologies.co.uk">Crumble Technologies</a></p>
     <br>
     <br>
     <label for="church_input">Church:</label>
-    <select name="church_input" id="church_input" class="text_input">
+    <select name="church_input" id="church_input" class="text_input" onchange="churchSelectChanged();">
         <option value="select-a-church">Select a church</option>
         <option value="hhpc">HHPC</option>
     </select>
     <br>
-    <label for="fwo_input">FWO:</label>
-    <input type="text" name="fwo_input" id="fwo_input" class="text_input" />
+    <label for="id_input" id="id_input_label">ID:</label>
+    <input type="text" name="id_input" id="id_input" class="text_input" />
     <br>
     <label for="pin_input">PIN:</label>
     <input type="password" name="pin_input" id="pin_input" class="text_input" />

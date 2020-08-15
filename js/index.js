@@ -17,11 +17,16 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
+var churchIDNames = {}
+firebase.database().ref("idAliases").once("value").then(function(snapshot) {
+    churchIDNames = snapshot.val()
+})
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         firebase.database().ref("/admin/" + user.uid).once("value").then(function(snapshot) {
             if (snapshot.val()) {
-                window.location.href = "./admin-index.html"
+                window.location.href = "./admin-index.html?church=" + snapshot.val().church
                 return
             }
 
@@ -38,11 +43,23 @@ firebase.auth().onAuthStateChanged(function(user) {
 })
 
 function signIn() {
-    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("fwo_input").value.padStart(4, '0')}@${document.getElementById("church_input").value.toLowerCase()}.com`, document.getElementById("pin_input").value).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(`${document.getElementById("id_input").value.padStart(4, '0')}@${document.getElementById("church_input").value.toLowerCase()}.com`, document.getElementById("pin_input").value).catch(function(error) {
         var errorCode = error.code
         var errorMessage = error.message
 
         window.location.href = "./index.html?message=signInFailed"
         return
     })
+}
+
+function churchSelectChanged() {
+    switch (document.getElementById("church_input").value) {
+        case "select-a-church":
+            document.getElementById("id_input_label").innerHTML = "ID:"
+            break;
+
+        default:
+            document.getElementById("id_input_label").innerHTML = churchIDNames[document.getElementById("church_input").value] + ":"
+            break;
+    }
 }
